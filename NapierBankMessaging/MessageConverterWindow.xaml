@@ -1,0 +1,68 @@
+﻿<Window x:Class="NapierBankMessaging.MessageConverterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NapierBankMessaging"
+        mc:Ignorable="d"
+        Title="Json Message Converter" Height="900" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Button Content="&lt;&lt; Back" DockPanel.Dock="Left" Width="100" HorizontalAlignment="Left" Margin="10"
+                    Command="{Binding OpenMainWindowCommand}"/>
+        </DockPanel>
+        <TabControl Grid.Row="1" FlowDirection="LeftToRight">
+            <TabItem Header="Single Json Converter">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Margin="10 10 10 0">
+                            <Label Content="Import from file : " DockPanel.Dock="Left"/>
+                            <Button Content="Browse..." Width="80" DockPanel.Dock="Right" HorizontalAlignment="Right"></Button>
+                        </DockPanel>
+                        <StackPanel Grid.Row="1">
+                            <Label Content="Header" Margin="10 0"/>
+                            <TextBox Margin="10 0" Text="{Binding Header, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"></TextBox>
+                        </StackPanel>
+                        <DockPanel Grid.Row="2" >
+                            <Label Content="Body" Margin="10 0" DockPanel.Dock="Top"/>
+                            <TextBox Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" DockPanel.Dock="Bottom" Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Margin="10 10 10 0">
+                            <Label Content="Export Json : " DockPanel.Dock="Left"/>
+                            <Button Content="Save As..." Width="80" DockPanel.Dock="Right" HorizontalAlignment="Right"></Button>
+                        </DockPanel>
+                        <DockPanel Grid.Row="1" >
+                            <Label Content="Json" Margin="10 0" DockPanel.Dock="Top"/>
+                            <TextBox Margin="10 0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" DockPanel.Dock="Bottom" IsReadOnly="True" Text="{Binding Json}" FontFamily="Courier New"/>
+                        </DockPanel>
+                    </Grid>
+                    <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Bulk Json Converter"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>

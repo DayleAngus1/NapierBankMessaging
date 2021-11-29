@@ -4,6 +4,31 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Icon\icon-128.png" />
+    <None Remove="Images\Icon\icon-256.png" />
+    <None Remove="Images\Icon\icon-32.png" />
+    <None Remove="Images\Icon\icon-512.png" />
+    <None Remove="Images\Icon\icon-64.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icon\icon-128.png" />
+    <Resource Include="Images\Icon\icon-256.png" />
+    <Resource Include="Images\Icon\icon-32.png" />
+    <Resource Include="Images\Icon\icon-512.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icon\icon-64.png" />
+  </ItemGroup>
 
 </Project>

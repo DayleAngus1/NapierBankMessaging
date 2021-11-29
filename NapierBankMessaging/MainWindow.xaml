@@ -5,8 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NapierBankMessaging"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Napier Bank Messaging" Height="900" Width="450">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+
+        <Image Source="Images/Icon/icon-512.png" Grid.Row="0" ></Image>
+        <Label Grid.Row="1" HorizontalAlignment="Center" FontFamily="Sitka Heading" FontWeight="Bold" FontSize="26" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" >
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth=".5" Direction="90" Opacity=".5" BlurRadius="8"/>
+            </Label.Effect> 
+            Napier Bank Messaging
+        </Label>
+
+        <!-- Navigation -->
+        
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Border Margin="5" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="2" Direction="90"></DropShadowEffect>
+                    </Border.Effect>
+                    
+                </Border>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label FontFamily="Sitka Heading" FontWeight="Bold" Margin="30" FontSize="18" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" >
+                        JSON Converter
+                    </Label>
+                    <TextBlock Grid.Row="1" Margin="40 0" TextWrapping="Wrap" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="DemiBold"  FontFamily="Bahnschrift SemiLight" Text="Convert Messages to Json format. This can be done one at a time or in bulk. Message types include :&#x0a;&#x0a;
+                               1. SMS&#x0a;
+                               2. Email&#x0a;
+                               3. Tweet" />
+                    <Button Grid.Row="2" Content="Start Converting" Margin="25" Height="30" Width="125" Background="LightSkyBlue" Foreground="White" BorderBrush="LightSkyBlue" Command="{Binding OpenMessageConverterWindowCommand}">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Border Margin="5" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="2" Direction="90"></DropShadowEffect>
+                    </Border.Effect>
+                </Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label FontFamily="Sitka Heading" FontWeight="Bold" Margin="30" FontSize="18" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" >
+                        Analytics
+                    </Label>
+                    <TextBlock Grid.Row="1" Margin="40 0" TextWrapping="Wrap" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="DemiBold" Text="View message analytics including :&#x0a; &#x0a;
+                               1. Trending&#x0a;
+                               2. Mentions&#x0a;
+                               3. Significant Incident Reports" FontFamily="Bahnschrift SemiLight" />
+                    <Button Grid.Row="2" Content="View Analytics" Margin="25" Height="30" Width="125"
+                            Background="LightSkyBlue" Foreground="White" BorderBrush="LightSkyBlue">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"></Setter>                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>
